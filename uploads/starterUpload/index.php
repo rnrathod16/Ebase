@@ -1,0 +1,147 @@
+<?php
+    session_start(); //we need session for the log in thingy XD 
+    require '../../loginsystem/partials/dbconnect.php';
+    if($_SESSION['login']!==true){
+        // header('location:index.php');
+        echo "<script>window.location.href='../../index.php'</script>";
+    }
+include 'filesLogic.php';
+    
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    
+  </head>
+
+  <body>
+
+    <header>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Hi, <?php echo $_SESSION['username'] ?></strong>
+            
+          </a>
+
+
+
+
+
+
+
+
+
+
+            <div class="pull-right">
+                <?php
+                if(isset($_POST['logout'])){
+                    session_start();
+                    session_unset();
+                    session_destroy();
+                    // header('location:index.php');
+                    echo "<script>window.location.href='../../index.php'</script>";
+                }
+    
+                ?>
+
+                
+                <form method="post">
+                    <button name="logout" class="btn btn-danger my-2">Logout</button>
+                    <a class="btn btn-primary" href="../../index.php" role="button">Home</a> 
+                        
+                </form>
+                
+                
+            </div>
+        </div>
+      </div>
+    </header>
+    <?php
+
+
+// require "../../nav.php"; 
+    
+    ?>
+
+
+<nav class="navbar center navbar-expand-lg navbar-dark bg-dark">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="../../home.php">Requests <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../accounts.php">Accepted</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../rejected.php">Rejected</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../Messages.php">Messages</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Upload Files
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="index.php">Starter Pack</a>
+          <a class="dropdown-item" href="../mediumUpload/index.php">Medium Pack</a>
+          <a class="dropdown-item" href="../completeUpload/index.php">Complete Pack</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+    <div class="container  my-5">
+    <div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Uploads</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../home.php">Go back</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="../../packages/starter.php">View Downloads</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Upload files to starter pack</h5>
+    <div class="container ">
+      <div class="row">
+        <form action="index.php" method="post" enctype="multipart/form-data" >
+          <input type="file" name="myfile"> <br><br><br>
+          <button type="submit" name="save" class="btn btn-primary">upload</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
