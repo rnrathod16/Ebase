@@ -18,7 +18,7 @@
             $code = 0;
            
 
-            $query = "INSERT INTO `accounts` (`firstname`, `lastname`, `username`, `password`, `pack`, `email`,`time`,`code`,`status`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', '$email', current_timestamp(),'$code');";
+            $query = "INSERT INTO `accounts` (`firstname`, `lastname`, `username`, `password`, `pack`, `email`,`time`,`code`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', '$email', current_timestamp(),'$code');";
             
             $result=mysqli_query($con,$query);
             if($result){
