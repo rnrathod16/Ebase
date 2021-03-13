@@ -116,11 +116,11 @@
 <div class="container text-center my-4"><h2>Queries Of Users</h2></div>
 
 <?php
- 
- $servername='localhost';
- $username='root';
- $password='';
- $database='users';
+$servername='localhost';
+$username='id15692232_user';
+$password='e~LV4OaiHrAFQK$^';
+$database='id15692232_users';
+
  
 
  

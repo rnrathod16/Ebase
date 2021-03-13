@@ -32,7 +32,7 @@ require 'loginsystem/partials/dbconnect.php';
                       
                       
                       switch($username){
-                        case "admin":
+                        case "rnrathod":
                           session_start();
                             $_SESSION['username']='admin';
                              $_SESSION['login'] = true;
@@ -126,6 +126,7 @@ require 'loginsystem/partials/dbconnect.php';
   </div>
 </form>
       </div>
+      <a href="Forgot/forgotpass.php">forgot</a>
       
     </div>
   </div>

@@ -99,12 +99,26 @@ session_start();
 
 //  session_start();
  $register=$_SESSION['time'];
- $memberEnds= date("y-m-d", strtotime(date("y-m-d",strtotime($register))." + 1 day"));
 
+
+
+
+
+ $memberEnds= date("y-m-d", strtotime(date("y-m-d",strtotime($register))." + 30 day"));
+$m = date("d", strtotime(date("d",strtotime($register))." + 30 day"));
+
+$p= date("y-m-d", strtotime(date("y-m-d",strtotime($register))." + 0 day"));
+
+
+// echo  date("d")+3;
+
+$v= (date("d")+30)-(date("d")+1);
 
  
 
  if(date("y-m-d")<$memberEnds){
+
+  echo "<h2 class='center container my-4'>Your Membership will Expire in ".$v." days.</h2>" ;
 
   $sql="SELECT * FROM `starterUpload`";
 
@@ -137,7 +151,7 @@ session_start();
 }
 else{
 
-  echo "<h2 class='center container my-4 ;
+  echo "<h2 class='center container my-4'>Membership Expired</h2>" ;
  
 }
     

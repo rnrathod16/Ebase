@@ -23,7 +23,8 @@
             $result=mysqli_query($con,$query);
             if($result){
                 echo "Account has been accepted.";
-            else{
+            }
+            else {
                 echo "Unknown error occured. Please try again.";
             }
         }

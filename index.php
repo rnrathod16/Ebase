@@ -610,6 +610,140 @@ include "personalSignup/completesignup.php";
     <!-- end of pricing -->
 
 
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
+<style> 
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  background-color: white;
+ 
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+</style>
+</head>
+<body>
+ 
+<div id="flip">
+<img src="images\aro.png" alt="Girl in a jacket" width="40" height="29">
+</div>
+<div id="panel">
+
+
+
+
+
+<?php
+
+$con = mysqli_connect("localhost","root","","users");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+            
+    <div id="pricing" class="cards-2">
+        <div class="container">
+        <div class="row">
+                </div>
+                
+			<?php
+			$count=1;
+            $sel_query="Select * from new_record ORDER BY id desc;";
+            $result = mysqli_query($con,$sel_query);			
+			while( $record = mysqli_fetch_assoc($result) )
+            {
+            echo '<div class="card">
+            <div class="label">
+                            <p class="best-value">'.$record["offer"].'</a></p>
+                        </div>
+            <div class="card-body">
+                <div class="card-title">
+                <a>'. $record["name"].'</a>
+                
+                </div>
+                <div class="card-subtitle">
+                <a>'. $record["plan"].'</a></div>
+                <hr class="cell-divide-hr">
+                <div class="price">
+                    <span class="currency">Rs</span><span class="value">'.$record["amount"].'</a></span>
+
+                    <div class="frequency">monthly</div>
+                </div>
+                <hr class="cell-divide-hr">
+
+
+    <div class="card-body info">
+        <div class="title">
+        </div>
+        <div class="desc"> <a target="_blank".'. $record["amount"].'">'.$record["specs"].'</a></div>	  
+                                    
+    </div>
+    <div class="button-wrapper">
+                    <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#completesignupmodal" style="color:black;">REQUEST</a>
+                </div>
+</div>';
+            
+            }
+			?>
+            
+            
+            
+			
+        </div>
+	</div>	
+	</div>
+</body>
+</html>
+
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Request -->
     <div id="request" class="form-1 center">
         <div class="container">
