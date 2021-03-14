@@ -106,6 +106,15 @@
           <a class="dropdown-item" href="uploads/completeUpload/index.php">Complete Pack</a>
         </div>
       </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Plans
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="newplans/insert.php">Upload New Plan</a>
+          <a class="dropdown-item" href="newplans/view.php">Existing Plan</a>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
