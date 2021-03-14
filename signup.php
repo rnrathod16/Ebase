@@ -1,14 +1,12 @@
 <?php 
-$servername='localhost';
-$username='root';
-$password='';
-$database='users';
 
-  $db = mysqli_connect($servername,$username,$password,$database);
+include "loginsystem/partials/dbconnect.php";
+
+  $con = mysqli_connect($servername,$username,$password,$database);
   if (isset($_POST['username_check'])) {
   	$username = $_POST['username'];
   	$sql = "SELECT * FROM accounts WHERE username='$username'";
-  	$results = mysqli_query($db, $sql);
+  	$results = mysqli_query($con, $sql);
   	if (mysqli_num_rows($results) > 0) {
   	  echo "taken";	
   	}else{
@@ -19,7 +17,7 @@ $database='users';
   if (isset($_POST['email_check'])) {
   	$email = $_POST['email'];
   	$sql = "SELECT * FROM accounts WHERE email='$email'";
-  	$results = mysqli_query($db, $sql);
+  	$results = mysqli_query($con, $sql);
   	if (mysqli_num_rows($results) > 0) {
   	  echo "taken";	
   	}else{
@@ -37,13 +35,13 @@ $database='users';
     $phone=$_POST['phone'];
     $address=$_POST['address'];
   	$sql = "SELECT * FROM accounts WHERE username='$username'";
-  	$results = mysqli_query($db, $sql);
+  	$results = mysqli_query($con, $sql);
   	if (mysqli_num_rows($results) > 0) {
   	  echo "exists";	
   	  exit();
   	}else{
   	  $query = "INSERT INTO `requests` (`firstname`, `lastname`, `username`, `password`, `pack`, `date`,`email`, `phone`, `address`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', current_timestamp(), '$email', '$phone', '$address');";
-  	  $r = mysqli_query($db, $query);
+  	  $r = mysqli_query($con, $query);
   	  echo 'Saved!';
         if($r){
             echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
