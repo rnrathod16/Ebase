@@ -670,7 +670,7 @@ if (mysqli_connect_errno())
 
 <body>
 <div id="pricing" class="cards-2">
-        <div class="container" style="display:flex;">
+        <div class="container" style="display:flex; justify-content: space-between; flex-wrap: wrap;">
 
 			<?php
 			$count=1;
