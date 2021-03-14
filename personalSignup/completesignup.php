@@ -107,7 +107,7 @@
   
                             <div class="mb-3">
     <label for="exampleInputPack" class="form-label">Pack Selected</label><br>
-    <input type="text"  class="form-control" value="Complete" id="exampleInputPack">
+    <input type="text"  class="form-control" value="Complete" id="exampleInputPack"readonly>
   </div>
   
 
