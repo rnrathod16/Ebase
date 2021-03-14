@@ -116,15 +116,13 @@
 <div class="container text-center my-4"><h2>Queries Of Users</h2></div>
 
 <?php
-$servername='localhost';
-$username='id15692232_user';
-$password='e~LV4OaiHrAFQK$^';
-$database='id15692232_users';
 
+
+include "loginsystem/partials/dbconnect.php";
  
 
  
- $conn = mysqli_connect($servername, $username, $password, $database);
+ $con = mysqli_connect($servername, $username, $password, $database);
  
  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
    $firstname = $_POST['firstname'];
@@ -133,7 +131,7 @@ $database='id15692232_users';
    $password= $_POST['password'];
    $pack = $_POST['pack'];
  $sql= "INSERT INTO `contact` (`name`, `email`, `message`, `date`) VALUES (`$name`, `$email`, `$message`, `$date`);";
- $result = mysqli_query($conn, $sql);
+ $result = mysqli_query($con, $sql);
  if($result){
    echo "record inserted";
  }

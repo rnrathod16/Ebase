@@ -1,11 +1,7 @@
 <?php
-/*
-Author: Javed Ur Rehman
-Website: https://www.allphptricks.com/
-*/
 
 
-$con = mysqli_connect("localhost","root","","users");
+$con = mysqli_connect("localhost","ritesh@localhost","ritesh@07","users");
 // Check connection
 if (mysqli_connect_errno())
   {

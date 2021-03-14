@@ -32,7 +32,7 @@ require 'loginsystem/partials/dbconnect.php';
                       
                       
                       switch($username){
-                        case "rnrathod":
+                        case "admin":
                           session_start();
                             $_SESSION['username']='admin';
                              $_SESSION['login'] = true;

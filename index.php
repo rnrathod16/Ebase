@@ -654,7 +654,8 @@ $(document).ready(function(){
 
 <?php
 
-$con = mysqli_connect("localhost","root","","users");
+// $con = mysqli_connect("localhost","root","","users");
+include "loginsystem/partials/dbconnect.php";
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -668,20 +669,19 @@ if (mysqli_connect_errno())
 </head>
 
 <body>
+<div id="pricing" class="cards-2">
+        <div class="container" style="display:flex;">
 
-            
-    <div id="pricing" class="cards-2">
-        <div class="container">
-        <div class="row">
-                </div>
-                
 			<?php
 			$count=1;
             $sel_query="Select * from new_record ORDER BY id desc;";
             $result = mysqli_query($con,$sel_query);			
 			while( $record = mysqli_fetch_assoc($result) )
             {
-            echo '<div class="card">
+            echo '
+            
+            
+            <div class="card">
             <div class="label">
                             <p class="best-value">'.$record["offer"].'</a></p>
                         </div>
@@ -710,17 +710,17 @@ if (mysqli_connect_errno())
     <div class="button-wrapper">
                     <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#completesignupmodal" style="color:black;">REQUEST</a>
                 </div>
+</div>
+	
 </div>';
             
             }
 			?>
+</div>	
+</div>
             
             
-            
-			
-        </div>
-	</div>	
-	</div>
+		
 </body>
 </html>
 

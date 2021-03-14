@@ -1,14 +1,10 @@
-
-
-
-
 <?php include('../header.php');?>
 
 
 <?php
 
  
-require('../newplans/db.php');
+require('db.php');
 
 ?>
 <!DOCTYPE html>

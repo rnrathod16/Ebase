@@ -1,14 +1,10 @@
 <?php
-$servername='localhost';
-$username='id15692232_user';
-$password='e~LV4OaiHrAFQK$^';
-$database='id15692232_users';
+include "../../loginsystem/partials/dbconnect.php";
 
-
-$conn=mysqli_connect($servername,$username,$password,$database);
+$con=mysqli_connect($servername,$username,$password,$database);
 
 $sql = "SELECT * FROM mediumUpload";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($con, $sql);
 
 $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -35,7 +31,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO mediumUpload (name, size, downloads) VALUES ('$filename', $size, 0)";
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_query($con, $sql)) {
                 echo "File uploaded successfully";
             }
         } else {
@@ -50,7 +46,7 @@ if (isset($_GET['file_id'])) {
 
     // fetch file to download from database
     $sql = "SELECT * FROM mediumUpload WHERE id=$id";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($con, $sql);
 
     $file = mysqli_fetch_assoc($result);
     $filepath = 'uploads/' . $file['name'];
@@ -68,7 +64,7 @@ if (isset($_GET['file_id'])) {
         // Now update downloads count
         $newCount = $file['downloads'] + 1;
         $updateQuery = "UPDATE mediumUpload SET downloads=$newCount WHERE id=$id";
-        mysqli_query($conn, $updateQuery);
+        mysqli_query($con, $updateQuery);
         exit;
     }
 

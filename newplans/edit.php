@@ -5,7 +5,7 @@
 
 <?php
 
-require('../newplans/db.php');
+require('db.php');
 
 $id=$_REQUEST['id'];
 $query = "SELECT * from new_record where id='".$id."'"; 

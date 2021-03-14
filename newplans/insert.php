@@ -5,7 +5,7 @@
 
 <?php
 
-require('../newplans/db.php');
+require('db.php');
 
 
 $status = "";
